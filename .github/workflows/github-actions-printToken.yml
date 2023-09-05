@@ -1,4 +1,4 @@
-name: Run Azure Login with OpenID Connect and PowerShell
+name: Print Federated Token
 on: [workflow_dispatch, push]
 
 permissions:
@@ -9,11 +9,11 @@ jobs:
   Windows-latest:
       runs-on: windows-latest
       steps:
-        - name: install
+        - name: Setup Node
           uses: actions/setup-node@v2
-        - name: install
+        - name: Install
           run: npm install @actions/core@1.6.0-beta.0
-        - name: install
+        - name: PrintId
           uses: actions/github-script@v4
           id: idtoken
           with:
