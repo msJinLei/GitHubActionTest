@@ -25,7 +25,9 @@ jobs:
           {
             Install-Module Az.ResourceGraph -Scope CurrentUser -Force
           }
+          Write-Host "$env:PSModulePath"
           $query = "resourcecontainers | where type == 'microsoft.resources/subscriptions' | project name, id | sort by name asc"
+          Import-Module Az.Accounts
           Get-Module -Name Az.Accounts
-          $subscriptions = Search-AzGraph -Query $query -UseTenantScope
+          #$subscriptions = Search-AzGraph -Query $query -UseTenantScope
           $subscriptions
