@@ -26,5 +26,6 @@ jobs:
             Install-Module Az.ResourceGraph -Scope CurrentUser -Force
           }
           $query = "resourcecontainers | where type == 'microsoft.resources/subscriptions' | project name, id | sort by name asc"
+          Get-Module -Name Az.Accounts
           $subscriptions = Search-AzGraph -Query $query -UseTenantScope
           $subscriptions
