@@ -13,7 +13,7 @@ jobs:
           uses: actions/setup-node@v2
         - name: Install
           run: npm install @actions/core@1.6.0-beta.0
-        - name: PrintId
+        - name: PrintFederatedToken
           uses: actions/github-script@v4
           id: idtoken
           with:
